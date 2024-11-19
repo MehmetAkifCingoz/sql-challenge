@@ -1,0 +1,43 @@
+#  Departments table
+
+departments
+--
+dept_no VARCHAR(10) NULL
+dept_name VARCHAR(50)
+
+#  Department-Employee Relationship table
+dept_emp
+--
+emp_no INTEGER PK NULL FK >- employees.emp_no
+dept_no VARCHAR(10) PK NULL FK >- departments.dept_no
+
+#  Department-Manager Relationship table
+dept_manager
+--
+dept_no VARCHAR(10) PK NULL FK >- departments.dept_no
+emp_no INTEGER PK NULL
+
+#  Employees table
+employees
+--
+emp_no INTEGER PK NULL
+emp_title_id VARCHAR(10) NULL
+birth_date DATE NULL
+first_name VARCHAR(50) NULL
+last_name VARCHAR(50) NULL
+sex CHAR(1) NULL
+hire_date DATE NULL
+
+#  Salaries table
+salaries
+--
+emp_no INTEGER PK NULL FK >- employees.emp_no
+salary INTEGER NULL
+
+#  Titles table
+titles
+--
+title_id VARCHAR(10) NULL FK >- employees.emp_title_id
+title VARCHAR(100) NULL
+
+
